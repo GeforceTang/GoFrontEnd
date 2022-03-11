@@ -1,85 +1,17 @@
-# JavaScript
+# JavaScript语言入门
 
-## 一、基础知识
 
-### 1、JavaScript
-
-> ECMA-262即ECMAScript作为一个基准定义，Web浏览器只是ECMAScript实现的一种宿主环境（host environment）。宿主环境提供ECMAScript的基准实现和与环境自身交互必需的扩展。扩展（比如DOM）使用ECMAScript核心类型和语法，提供特定于环境的额外功能。其他宿主环境还有服务器端JavaScript平台Node.js和即将被淘汰的Adobe Flash。
-
-ECMAScript包含以下部分：
-
-- 语法
-- 类型
-- 语句
-- 关键字
-- 保留字
-- 操作符
-- 全局对象
-
-ECMAScript只是对实现这个规范描述的所有方面的一门语言的称呼，JavaScript实现了ECMAScript。一般来讲JavaScript和ECMAScript基本上是同义词，但完整的JavaScript实现包含：
-
-- 核心（ECMAScript）
-- 文档对象模型（DOM）
-- 浏览器对象模型（BOM）
-
-#### 版本（edition）
-
-1. ECMA-262第1版对应网景的JavaScript 1.1；
-2. ECMA-262第2版是对第1版简单的修正；
-3. ECMA-262第3版是真正意义上的首个标准；
-4. ECMA-262第4版开展了一次彻底修订，增强了功能，但因为改动太大备放弃，改用了改动较小的3.1版本；
-5. ECMA-262第5版于2009年12月3日正式发布，是ECMA-262第3.1版的基础上增加了新功能；
-6. ECMA-262第6版（俗称ES6、ES2015或ES Harmony（和谐版），目前的主流）于2015年6月发布，正式支持了类、模块、迭代器、生成器、箭头函数、期约、反射、代理和众多新的数据类型；
-7. ECMA-262第7版（俗称ES7、ES2016）于2016年6月发布，做了小量语法增强；
-8. ECMA-262第8版（俗称ES8、ES2017）完成于2017年6月，主要增加了异步函数（async/await）、SharedArrayBuffer及Atomics API；
-9. ECMA-262第9版（俗称ES9、ES2018）发布于2018年6月。
-10. ECMA-262第10版（俗称ES10、ES2019）发布于2019年6月。
-
-### 2、DOM
-
-> 文档对象模型（DOM，Document Object Model）是一个应用编程接口（API），用于在HTML中使用扩展的XML。DOM将整个页面抽象为一组分层节点。HTML或XML页面的每个组成部分都是一种节点。
-
-DOM通过创建表示文档树，让开发者可以随心所欲地控制网页的内容和结构。使用DOM API，可以轻松地删除、添加、替换、修改节点。
-
-- DOM Level 1：映射文档结构；
-- DOM Level 2：增加了对鼠标和用户界面事件、范围、遍历（迭代DOM节点的方法）的支持，而且通过对象接口支持了层叠样式表（CSS）；
-  - DOM视图：描述追踪文档不同视图（如应用CSS样式前后的文档）的接口
-  - DOM事件：描述事件及事件处理的接口
-  - DOM样式：描述处理元素CSS样式的接口
-  - DOM遍历和范围：描述遍历和操作DOM树的接口
-- DOM Level 3：增加了以统一的方式加载和保存文档的方法（包含在一个叫DOM Load and Save的新模块中），还有验证文档的方法（DOM Validation）；
-- DOM Level 4：目前，W3C不再按照Level来维护DOM了，而是作为DOM Living Standard来维护，其快照称为DOM4。
-
-### 3、BOW
-
-> 浏览器对象模型（BOM，Brower Object Model）API，用于支持访问和操作浏览器的窗口。使用BOM开发者可以操控浏览器显示页面之外的部分。HTML5的出现解决了BOM没有相关标准的JavaScript实现导致的相关问题。
-
-总体来说，BOM主要针对浏览器窗口和子窗口（frame），不过人们通常会把任何特定于浏览器的扩展都归在BOM的范畴内。比如下面就是这样一些扩展：
-
-- 弹出新浏览器窗口的能力；
-- 移动、缩放和关闭浏览器窗口的能力；
-- navigator对象，提供关于浏览器的详尽信息；
-- location对象，提供浏览器加载页面的详尽信息；
-- screen对象，提供关于用户屏幕分辨率的详尽信息；
-- performance对象，提供浏览器内存占用、导航行为和时间统计的详尽信息；
-- 对cookie的支持；
-- 其他自定义对象，如XMLHttpRequest和IE的ActiveXObject。
-
-因为在很长时间内都没有标准，所以每个浏览器实现的都是自己的BOM。有一些所谓的事实标准，比如对于window对象和navigator对象，每个浏览器都会给它们定义自己的属性和方法。现在有了HTML5，BOM的实现细节应该会日趋一致。关于BOM，本书会在第12章再专门详细介绍。
-
-## 二、语言入门
-
-### 引入JavaScript
+## 引入JavaScript
 
 将JavaScript插入HTML的主要方法是使用<script>元素，共有8各属性。
 
-##### 常用的
+#### 常用的
 
 - src：可选。表示包含要执行的代码的外部文件。
 - async：可选。表示应该立即开始下载脚本，但不能阻止其他页面动作，比如下载资源或等待其他脚本加载。只对外部脚本文件有效。
 - defer：可选。表示脚本可以延迟到文档完全被解析和显示之后再执行。只对外部脚本文件有效。
 
-##### 不常用的
+#### 不常用的
 
 - type：可选。代替language，表示代码块中脚本语言的内容类型（也称MIME类型）。
 - crossorigin：可选。配置相关请求的CORS（跨源资源共享）设置。默认不使用CORS。crossorigin="anonymous"配置文件请求不必设置凭据标志。crossorigin="use-credentials"设置凭据标志，意味着出站请求会包含凭据。
@@ -87,7 +19,7 @@ DOM通过创建表示文档树，让开发者可以随心所欲地控制网页�
 - charset：可选。使用src属性指定的代码字符集。这个属性很少使用，因为大多数浏览器不在乎它的值。
 - language：废弃。最初用于表示代码块中的脚本语言（如"JavaScript"、"JavaScript 1.2"或"VBScript"）。
 
-#### 引入方式
+### 引入方式
 
 方式1：嵌入式JavaScript代码块
 
@@ -111,7 +43,7 @@ DOM通过创建表示文档树，让开发者可以随心所欲地控制网页�
 - 缓存。浏览器会根据特定的设置缓存所有外部链接的JavaScript文件，这意味着如果两个页面都用到同一个文件，则该文件只需下载一次。这最终意味着页面加载更快。
 - 适应未来。通过把JavaScript放到外部文件中，就不必考虑用XHTML注释黑科技（<Script><!-- code--></script>）。包含外部JavaScript文件的语法在HTML和XHTML中是一样的。
 
-#### 标签占位
+### 标签占位
 
 过去所有<Script>和CSS都放到<head>标签内集中管理，但是这样带来的缺点是必须把所有JavaScript代码都下载、解析和解释完成后，才能开始渲染页面（页面在浏览器解析到<body>的起始标签时开始渲染），导致页面渲染延迟。
 
@@ -131,9 +63,9 @@ DOM通过创建表示文档树，让开发者可以随心所欲地控制网页�
 </html>
 ```
 
-#### 注意项
+### 注意项
 
-##### 延迟执行脚本（defer属性）
+#### 延迟执行脚本（defer属性）
 
 表示脚本在执行的时候不会改变页面的结构，脚本会被延迟到整个页面都解析完毕后再运行。相当于告诉浏览器立即下载，但延迟执行。
 
@@ -146,7 +78,7 @@ DOM通过创建表示文档树，让开发者可以随心所欲地控制网页�
 - 在DOMContentLoaded事件之前执行；
 - defer属性只对外部脚本文件才有效。
 
-##### 异步执行脚本（async属性）
+#### 异步执行脚本（async属性）
 
 给脚本添加async属性的目的是告诉浏览器，不必等脚本下载和执行完后再加载页面，同样也不必等到该异步脚本下载和执行后再加载其他脚本。
 
@@ -160,7 +92,7 @@ DOM通过创建表示文档树，让开发者可以随心所欲地控制网页�
 - 异步脚本保证会在页面的load事件前执行，但可能会在DOMContentLoaded之前或之后；
 - 使用async也会告诉页面你不会使用document.write（不过好的Web开发实践根本就不推荐使用这个方法）。
 
-##### 动态加载脚本（不推荐）
+#### 动态加载脚本（不推荐）
 
 用JavaScript使用DOM API通过向DOM中动态添加script元素加载指定的脚本。
 
@@ -170,18 +102,18 @@ script.src = 'gibberish.js';
 document.head.appendChild(script);
 ```
 
-### JavaScript语法
+## JavaScript语法
 
 - ECMAScript区分大小写；
 - 使用`//`当行注释，使用`/**/`多行注释；
 - 语句可以没有`;`来结尾；
 - 使用`"use strict"`开启严格模式，不规范写法在这种模式下会被处理，对于不安全的活动将抛出错误。
 
-### 变量声明
+## 变量声明
 
 ECMAScript变量是松散类型的，可以用于保存任何类型的数据，变量只不过是一个用于保存任意值的命名占位符。
 
-#### var关键字
+### var关键字
 
 ```javascript
 var message1 = "hi";
@@ -211,7 +143,7 @@ var message3="hi",message4="hi",message5="hi";
   foo();  // undefined
   ```
 
-#### let关键字
+### let关键字
 
 - 与var最大的不同是let声明的范围是块作用域，而var声明的范围是函数作用域。
 
@@ -286,7 +218,7 @@ for (var i = 0; i < 5; ++i) {
 //实际上会输出5、5、5、5、5
 ```
 
-#### const关键字
+### const关键字
 
 const的行为与let基本相同，唯一的区别是用它声明变量时必须同时初始化变量，且尝试修改const声明的变量会导致运行时错误。
 
@@ -305,16 +237,16 @@ if (true) {
 console.log(name); // Matt
 ```
 
-#### 最佳实践
+### 最佳实践
 
 1. 尽可能的不适用var：限制只使用let和const有助于提升代码质量，因为变量有了明确的作用域、声明位置，以及不变的值。
 2. const优先，let次之：推断某些变量的值永远不会变，同时可以让静态代码分析工具迅速发现因意外赋值导致的非预期行为。
 
-### 数据类型
+## 数据类型
 
 ECMAScript有6种简单数据类型（也称为原始类型）：Undefined、Null、Boolean、Number、String和Symbol，和一种复杂数据类型叫Object（对象），Object是一种无序名值对的集合。
 
-#### typeof操作符
+### typeof操作符
 
 用来确定任意变量的数据类型，使用typeof操作符会返回下列字符串之一：
 
@@ -326,7 +258,7 @@ ECMAScript有6种简单数据类型（也称为原始类型）：Undefined、Nul
 - "function"表示值为函数；
 - "symbol"表示值为符号。
 
-#### Undefined类型
+### Undefined类型
 
 只有一个特殊值undefined。当使用var或let声明了变量但没有初始化时，就相当于给变量赋予了undefined值：
 
@@ -353,7 +285,7 @@ console.log(typeof age);     // "undefined"
 
 undefined是一个假值，可以用更简洁的方式`if(msg)`检测它。
 
-#### Null类型
+### Null类型
 
 只有一个特殊值null，null值表示一个空对象指针，这也是给typeof传一个null会返回"object"的原因：
 
@@ -372,7 +304,7 @@ console.log(null == undefined);  // true
 
 null是一个假值，可以用更简洁的方式`if(msg)`检测它。
 
-#### Boolean类型
+### Boolean类型
 
 布尔值只有两个值：true和false，但所有其他ECMAScript类型的值都有相应布尔值的等价形式，转换规则如下表：
 
@@ -384,11 +316,11 @@ null是一个假值，可以用更简洁的方式`if(msg)`检测它。
 | Object    | 任意对象               | null            |
 | Undefined | N/A（不存在）          | undefined       |
 
-#### Number类型
+### Number类型
 
 使用IEEE754格式表示整数和浮点值（双精度值）。
 
-##### 整形定义
+#### 整形定义
 
 ```javascript
 /* 十进制字面量 */
@@ -404,7 +336,7 @@ let hexNum1 = 0xA;   //十六进制10
 let hexNum2 = 0x1f;  //十六进制31
 ```
 
-##### 浮点型定义
+#### 浮点型定义
 
 要定义浮点值，数值中必须包含小数点，而且小数点后面必须至少有一个数字。
 
@@ -428,7 +360,7 @@ let result = Number.MAX_VALUE + Number.MAX_VALUE;
 console.log(isFinite(result));  // false
 ```
 
-##### NaN
+#### NaN
 
 有一个特殊的数值叫NaN，意思是“不是数值”（Not a Number），用于表示本来要返回数值的操作失败了（而不是抛出错误）。
 
@@ -448,11 +380,11 @@ console.log(isNaN("blue"));  // true，不可以转换为数值
 console.log(isNaN(true));    // false，可以转换为数值1
 ```
 
-##### 数值转换
+#### 数值转换
 
 有3个函数可以将非数值转换为数值：Number()、parseInt()和parseFloat()。
 
-###### Number()
+##### Number()
 
 Number()是转型函数，可用于任何数据类型，Number()函数基于如下规则执行转换：
 
@@ -468,7 +400,7 @@ Number()是转型函数，可用于任何数据类型，Number()函数基于如�
 
 后两个函数主要用于将字符串转换为数值。对于同样的参数，这3个函数执行的操作也不同。。
 
-###### parseInt()
+##### parseInt()
 
 parseInt()函数专注于字符串是否包含数值模式，通常在需要得到整数时可以优先使用parseInt()函数。
 
@@ -492,7 +424,7 @@ let num3 = parseInt("10", 10);  // 10，按十进制解析
 let num4 = parseInt("10", 16);  // 16，按十六进制解析
 ```
 
-###### parseFloat()
+##### parseFloat()
 
 与parseInt()类似，在获取浮点型时可以优先使用parseFloat()函数。
 
@@ -505,7 +437,7 @@ let num5 = parseFloat("0908.5");    // 908.5
 let num6 = parseFloat("3.125e7");   // 31250000
 ```
 
-#### String类型
+### String类型
 
 String（字符串）数据类型表示零或多个16位Unicode字符序列，字符串可以使用双引号（"）、单引号（'）或反引号（`）标示。
 
@@ -515,7 +447,7 @@ let lastName = 'Jacob';
 let lastName = `Jingleheimerschmidt`
 ```
 
-##### 字符子面量
+#### 字符子面量
 
 - \n：换行
 - \t：制表
@@ -527,7 +459,7 @@ let lastName = `Jingleheimerschmidt`
 - \xnn：十六制编码nn表示的字符（n为十六进制0~F）
 - \unnnn：十六制编码nn表示的Unicode字符（n为十六进制0~F）
 
-##### 字符串不可变
+#### 字符串不可变
 
 字符串是不可变的（immutable），要修改某个变量中的字符串值，必须先销毁原始的字符串，然后将包含新值的另一个字符串保存到该变量。
 
@@ -537,11 +469,11 @@ let lang = "Java";
 lang = lang + "Script";
 ```
 
-##### 转换为字符串
+#### 转换为字符串
 
 有两种方式把一个值转换为字符串。
 
-###### toString()
+##### toString()
 
 方式1：toString()方法唯一的用途就是返回当前值的字符串等价物。toString()方法可见于数值、布尔值、对象和字符串值，null和undefined值没有toString()方法。
 
@@ -560,7 +492,7 @@ console.log(num.toString(10));   // "10"
 console.log(num.toString(16));   // "a"
 ```
 
-###### String()
+##### String()
 
 方式2：如果你不确定一个值是不是null或undefined，可以使用String()转型函数，它始终会返回表示相应类型值的字符串。String()函数遵循如下规则。
 
@@ -580,7 +512,7 @@ console.log(String(value3));  // "null"
 console.log(String(value4));  // "undefined"
 ```
 
-##### 模板字面量
+#### 模板字面量
 
 ES6新增了使用模板字面量定义字符串的能力。与使用单引号或双引号不同，模板字面量保留换行字符，可以跨行定义字符串：
 
@@ -600,7 +532,7 @@ console.log(myMultiLineTemplateLiteral);
 console.log(myMultiLineString === myMultiLinetemplateLiteral); // true
 ```
 
-###### 字符串插值
+##### 字符串插值
 
 模板字面量最常用的一个特性是支持字符串插值，字符串插值通过在${}中使用一个JavaScript表达式实现。
 
@@ -634,7 +566,7 @@ function capitalize(word) {
 console.log(`${ capitalize('hello') }, ${ capitalize('world') }!`); // Hello, World!
 ```
 
-###### 标签函数
+##### 标签函数
 
 模板字面量也支持定义标签函数（tag function），而通过标签函数可以自定义插值行为。标签函数会接收被插值记号分隔后的模板和对每个表达式求值的结果。
 
@@ -672,7 +604,7 @@ function simpleTag(strings, ...expressions) {
 }
 ```
 
-##### 原始字符串
+#### 原始字符串
 
 使用String.raw标签函数获取元素字符串内容而不是被转换后的字符表示、
 
@@ -723,11 +655,11 @@ printRaw`\u00A9${ 'and' }\n`;
 
 ```
 
-#### Symbol类型
+### Symbol类型
 
 Symbol（符号）是ES6新增的数据类型。符号是原始值，且符号实例是唯一、不可变的。符号的用途是确保对象属性使用唯一标识符，不会发生属性冲突的危险。
 
-##### 基本使用
+#### 基本使用
 
 符号需要使用Symbol()函数初始化。
 
@@ -750,7 +682,7 @@ console.log(fooSymbol == otherFooSymbol);          // false
 let mySymbol = new Symbol(); // TypeError: Symbol is not a constructor
 ```
 
-##### 使用全局符号注册表
+#### 使用全局符号注册表
 
 如果运行时的不同部分需要共享和重用符号实例，那么使用Symbol.for()方法用一个字符串作为键，在全局符号注册表中创建并重用符号。
 
@@ -785,7 +717,7 @@ Symbol.keyFor(123); // TypeError: 123 is not a symbol
 
 //todo 其他待完善...
 
-#### Object类型
+### Object类型
 
 ECMAScript中的对象其实就是一组数据和功能的集合。对象通过new操作符后跟对象类型的名称来创建。
 
@@ -802,18 +734,18 @@ let o = new Object;  //合法，但不推荐
 - toString()：返回对象的字符串表示。
 - valueOf()：返回对象对应的字符串、数值或布尔值表示。通常与toString()的返回值相同。
 
-### 操作符
+## 操作符
 
 数学操作符（如加、减）、位操作符、关系操作符和相等操作符等。操作符可用于各种值，包括字符串、数值、布尔值，甚至还有对象，在应用给对象时，操作符通常会调用valueOf()和/或toString()方法来取得可以计算的值。
 
-#### 一元操作符
+### 一元操作符
 
 只操作一个值的操作符叫一元操作符（unary operator）
 
 - 递增/递减操作符：--、++；
 - 一元加和减：+、-；
 
-#### 位操作符
+### 位操作符
 
 用于操作内存中表示数据的比特（位），位操作符是会将64位转换为32位，执行位操作后再转换为64位。
 
@@ -825,7 +757,7 @@ let o = new Object;  //合法，但不推荐
 
 注意：使用位操作符转换也导致了一个奇特的副作用，即特殊值NaN和Infinity在位操作中都会被当成0处理。
 
-##### 按位非（~）
+#### 按位非（~）
 
 按位非操作符用波浪符（~）表示，它的作用是返回数值的一补数。
 
@@ -842,7 +774,7 @@ console.log(num2);   // "-26"
 /*实际上，尽管两者返回的结果一样，但位操作的速度快得多。这是因为位操作是在数值的底层表示上完成的。*/
 ```
 
-##### 按位与（&）
+#### 按位与（&）
 
 按位与操作符用和号（&）表示，有两个操作数。按位与就是将两个数的每一个位对齐，然后基于真值表中的规则，对每一位执行相应的与操作。
 
@@ -852,7 +784,7 @@ let result = 25 & 3;
 console.log(result); // 1
 ```
 
-##### 按位或（|）
+#### 按位或（|）
 
 按位或操作符用管道符（|）表示，同样有两个操作数。
 
@@ -862,7 +794,7 @@ let result = 25 | 3;
 console.log(result); // 27
 ```
 
-##### 按位异或（^）
+#### 按位异或（^）
 
 按位异或用脱字符（^）表示，同样有两个操作数。
 
@@ -872,7 +804,7 @@ let result = 25 ^ 3;
 console.log(result); // 26
 ```
 
-##### 左移（<<）
+#### 左移（<<）
 
 左移操作符用两个小于号（<<）表示，会按照指定的位数将数值的所有位向左移动。
 
@@ -884,7 +816,7 @@ let newValue = oldValue << 5;  //等于二进制1000000，即十进制64
 
 注意：左移会保留它所操作数值的符号。比如，如果-2左移5位，将得到-64，而不是正64。
 
-##### 有符号右移（>>）
+#### 有符号右移（>>）
 
 有符号右移由两个大于号（>>）表示，会将数值的所有32位都向右移，同时保留符号（正或负）。有符号右移实际上是左移的逆运算。
 
@@ -895,7 +827,7 @@ let newValue = oldValue >> 5;  //等于二进制10，即十进制2
 
 注意：右移后左侧会出现空位，ECMAScript会用符号位的值来填充这些空位，以得到完整的数值。
 
-##### 无符号右移（>>>）
+#### 无符号右移（>>>）
 
 无符号右移用3个大于号表示（>>>），会将数值的所有32位都向右移。
 
@@ -909,11 +841,11 @@ let oldValue = -64;              //等于二进制111111111111111111111111110000
 let newValue = oldValue >>> 5;   //等于十进制134217726
 ```
 
-#### 布尔操作符
+### 布尔操作符
 
 布尔操作符一共有3个：逻辑非、逻辑与和逻辑或。
 
-##### 逻辑非（!）
+#### 逻辑非（!）
 
 逻辑非操作符由一个叹号（!）表示，始终返回布尔值，无论应用到的是什么数据类型。逻辑非操作符首先将操作数转换为布尔值，然后再对其取反。逻辑非操作符会遵循如下规则：
 
@@ -942,7 +874,7 @@ console.log(!!"");     // false
 console.log(!!12345);  // true
 ```
 
-##### 逻辑与（&&）
+#### 逻辑与（&&）
 
 逻辑与操作符由两个和号（&&）表示，应用到两个值。只有两个都为true时才为true。
 
@@ -950,7 +882,7 @@ console.log(!!12345);  // true
 let result = true && false;	//false
 ```
 
-##### 逻辑或（||）
+#### 逻辑或（||）
 
 逻辑或操作符由两个管道符（||）表示，应用到两个值。只要有一个都为true时就为true。
 
@@ -958,23 +890,23 @@ let result = true && false;	//false
 let result = true || false;	//true
 ```
 
-#### 乘性操作符
+### 乘性操作符
 
 ECMAScript定义了3个乘性操作符：乘法、除法和取模。如果乘性操作符有不是数值的操作数，则该操作数会在后台被使用Number()转型函数转换为数值。这意味着空字符串会被当成0，而布尔值true会被当成1。
 
-##### 乘法操作符（*）
+#### 乘法操作符（*）
 
 乘法操作符由一个星号（*）表示，可以用于计算两个数值的乘积。
 
-##### 除法操作符（/）
+#### 除法操作符（/）
 
 除法操作符由一个斜杠（/）表示，用于计算第一个操作数除以第二个操作数的商。
 
-##### 取模操作符（%）
+#### 取模操作符（%）
 
 取模（余数）操作符由一个百分比符号（%）表示。
 
-#### 指数操作符（**）
+### 指数操作符（**）
 
 ES7新增了指数操作符，Math.pow()现在有了自己的操作符**。
 
@@ -995,25 +927,25 @@ sqrt **= 0.5;
 console.log(sqrt); // 4
 ```
 
-#### 加性操作符
+### 加性操作符
 
-##### 加法操作符（+）
+#### 加法操作符（+）
 
 加法操作符（+）用于求两个数的和。
 
-##### 减法操作符（-）
+#### 减法操作符（-）
 
 减法操作符（-）也是使用很频繁的一种操作符
 
-#### 关系操作符
+### 关系操作符
 
 关系操作符执行比较两个值的操作，包括小于（<）、大于（>）、小于等于（<=）和大于等于（>=），操作符都返回布尔值。
 
-#### 相等操作符
+### 相等操作符
 
 ES提供了两组操作符，第一组是等于和不等于，它们在比较之前执行转换；第二组是全等和不全等，它们在比较之前不执行转换。
 
-##### 等于和不等于
+#### 等于和不等于
 
 ECMAScript中的等于操作符用两个等于号（==）表示，如果操作数相等，则会返回true。
 
@@ -1021,20 +953,20 @@ ECMAScript中的等于操作符用两个等于号（==）表示，如果操作�
 
 这两个操作符都会先进行类型转换（通常称为强制类型转换）再确定操作数是否相等。在转换操作数的类型时，相等和不相等操作符遵循如下规则。
 
-###### 转换规则
+##### 转换规则
 
 - 如果任一操作数是布尔值 ，则将其转换为数值再比较是否相等。false转换为0，true转换为1。
 - 如果一个操作数是字符串，另一个操作数是数值，则尝试将字符串转换为数值，再比较是否相等。
 - 如果一个操作数是对象，另一个操作数不是，则调用对象的valueOf()方法取得其原始值，再根据前面的规则进行比较。
 
-###### 比较规则
+##### 比较规则
 
 - null和undefined相等。
 - null和undefined不能转换为其他类型的值再进行比较。
 - 如果有任一操作数是NaN，则相等操作符返回false，不相等操作符返回true。
 - 如果两个操作数都是对象，则比较它们是不是同一个对象。如果两个操作数都指向同一个对象，则相等操作符返回true。否则，两者不相等。
 
-##### 全等和不全等
+#### 全等和不全等
 
 全等和不全等操作符与相等和不相等操作符类似，只不过它们在比较相等时不转换操作数。
 
@@ -1044,11 +976,11 @@ ECMAScript中的等于操作符用两个等于号（==）表示，如果操作�
 
 注意：注意由于相等和不相等操作符存在类型转换问题，因此推荐使用全等和不全等操作符。这样有助于在代码中保持数据类型的完整性。
 
-#### 条件操作符
+### 条件操作符
 
 语法：`variable = boolean_expression ? true_value : false_value;`
 
-#### 赋值操作符
+### 赋值操作符
 
 - 乘后赋值（*=）
 - 除后赋值（/=）
@@ -1059,7 +991,7 @@ ECMAScript中的等于操作符用两个等于号（==）表示，如果操作�
 - 右移后赋值（>>=）
 - 无符号右移后赋值（>>>=）
 
-#### 逗号操作符
+### 逗号操作符
 
 逗号操作符可以用来在一条语句中执行多个操作。
 
@@ -1069,17 +1001,17 @@ let num1 = 1, num2 = 2, num3 = 3;
 let num = (5, 1, 4, 8, 0); // num的值为0
 ```
 
-### 语句
+## 语句
 
 流控制语句通常使用一或多个关键字完成既定的任务。
 
-#### if语句
+### if语句
 
 语法：`if (condition) statement1 else statement2`
 
 if (condition1) statement1 else if (condition2) statement2 else statement3
 
-#### do-while语句
+### do-while语句
 
 do-while语句是一种后测试循环语句，即循环体中的代码执行后才会对退出条件进行求值。循环体内的代码至少执行一次。
 
@@ -1089,25 +1021,25 @@ do-while语句是一种后测试循环语句，即循环体中的代码执行后
   statement
 } while (expression);`
 
-#### while语句
+### while语句
 
 while语句是一种先测试循环语句，即先检测退出条件，再执行循环体内的代码。while循环体内的代码有可能不会执行。
 
 语法：`while(expression) statement`
 
-#### for语句
+### for语句
 
 for语句也是先测试语句，只不过增加了进入循环之前的初始化代码，以及循环执行后要执行的表达式。
 
 语法：`for (initialization; expression; post-loop-expression) statement`
 
-#### for-in语句
+### for-in语句
 
 for-in语句是一种严格的迭代语句，用于枚举对象中的非符号键属性。
 
 语法：`for (property in expression) statement`
 
-#### for-of语句
+### for-of语句
 
 for-of语句是一种严格的迭代语句，用于遍历可迭代对象的元素。
 
@@ -1115,21 +1047,21 @@ for-of语句是一种严格的迭代语句，用于遍历可迭代对象的元�
 
 for-of循环会按照可迭代对象的next()方法产生值的顺序迭代元素。如果尝试迭代的变量不支持迭代，则for-of语句会抛出错误。
 
-#### 标签语句
+### 标签语句
 
 标签语句用于给语句加标签。
 
 语法：`label: statement`
 
-#### break语句
+### break语句
 
 用于立即退出循环，强制执行循环后的下一条语句。
 
-#### continue语句
+### continue语句
 
 用于立即退出循环，但会再次从循环顶部开始执行。
 
-#### with语句
+### with语句
 
 with语句的用途是将代码作用域设置为特定的对象。
 
@@ -1137,7 +1069,7 @@ with语句的用途是将代码作用域设置为特定的对象。
 
 警告：由于with语句影响性能且难于调试其中的代码，通常不推荐在产品代码中使用with语句。
 
-#### switch语句
+### switch语句
 
 switch语句是与if语句紧密相关的一种流控制语句。
 
@@ -1160,7 +1092,7 @@ switch语句是与if语句紧密相关的一种流控制语句。
     statement
 }`
 
-### 函数
+## 函数
 
 ES中的函数使用function关键字声明，后跟一组参数，然后是函数体。
 
@@ -1173,152 +1105,3 @@ ES中的函数使用function关键字声明，后跟一组参数，然后是函�
 - 不需要指定函数的返回值，因为任何函数可以在任何时候返回任何值。
 - 不指定返回值的函数实际上会返回特殊值undefined。
 
-## 三、语言进阶
-
-### 变量
-
-JavaScript变量是松散类型的，而且变量不过就是特定时间点一个特定值的名称而已。由于没有规则定义变量必须包含什么数据类型，变量的值和数据类型在脚本生命期内可以改变。ECMAScript变量可以包含两种不同类型的数据：原始值和引用值。
-
-- 原始值（primitive value）：Undefined、Null、Boolean、Number、String和Symbol。保存原始值的变量是按值（by value）访问的
-
-- 引用值（reference value）：保存在内存中的对象，操作对象的引用（reference）而非实际的对象本身。保存引用值的变量是按引用（by reference）访问的。
-
-#### 动态属性
-
-引用值可以随时添加、修改和删除其属性和方法。
-
-```javascript
-let person = new Object();
-person.name = "Nicholas";
-console.log(person.name); // "Nicholas"
-
-//原始值不能有属性
-let name = "Nicholas";
-name.age = 27;
-console.log(name.age);  // undefined
-
-//如果使用的是new关键字，则JavaScript会创建一个Object类型的实例。
-let name1 = "Nicholas";
-let name2 = new String("Matt");
-name1.age = 27;
-name2.age = 26;
-console.log(name1.age);    // undefined
-console.log(name2.age);    // 26
-console.log(typeof name1); // string
-console.log(typeof name2); // object
-```
-
-#### 复制值
-
-存储方式不同，原始值和引用值在通过变量复制时也有所不同。
-
-```javascript
-// 原始值是完全独立的，独立使用互补干扰。
-let num1 = 5;
-let num2 = num1;
-num1=3
-
-// 引用值实际赋值的是指针，指向的是同一个对象，操作会有影响。
-let obj1 = new Object();
-let obj2 = obj1;
-obj1.name = "Nicholas";
-console.log(obj2.name); // "Nicholas"
-```
-
-#### 传递参数
-
-ES中所有函数参数都是按值传递的，和变量复制值是一样的道理。
-
-```javascript
-//在按值传递参数时，值会被复制到一个局部变量（即一个命名参数，或者用ECMAScript的话说，就是arguments对象中的一个槽位）。
-function addTen(num) {
-  num += 10;
-  return num;
-}
-
-let count = 20;
-let result = addTen(count);
-console.log(count);  // 20，没有变化
-console.log(result); // 30
-
-
-//在按引用传递参数时，值在内存中的位置会被保存在一个局部变量，这意味着对本地变量的修改会反映到函数外部。
-function setName(obj) {
-  obj.name = "Nicholas";
-}
-
-let person = new Object();
-setName(person);
-console.log(person.name);  // "Nicholas"
-```
-
-#### 确定类型
-
-##### 原始类型
-
-typeof操作符最适合用来判断一个变量是否为原始类型。
-
-```javascript
-let s = "Nicholas";
-let b = true;
-let i = 22;
-let u;
-let n = null;
-let o = new Object();
-console.log(typeof s); // string
-console.log(typeof i); // number
-console.log(typeof b); // boolean
-console.log(typeof u); // undefined
-console.log(typeof n); // object
-console.log(typeof o); // object
-```
-
-typeof操作符在用于检测函数时会返回"function"，任何实现内部[[Call]]方法的对象都应该在typeof检测时返回"function"。
-
-##### 引用值
-
-typeof虽然对原始值很有用，但它对引用值的用处不大（始终返回object）。ES提供了instanceof操作符
-
-语法：`result = variable instanceof constructor`
-
-```javascript
-//如果变量是给定引用类型（由其原型链决定）的实例，则instanceof操作符返回true。
-console.log(person instanceof Object);  //变量person是Object吗？
-console.log(colors instanceof Array);   //变量colors是Array吗？
-console.log(pattern instanceof RegExp); //变量pattern是RegExp吗？
-```
-
-所有引用值都是Object的实例，因此通过instanceof操作符检测任何引用值和Object构造函数都会返回true。类似地，如果用instanceof检测原始值，则始终会返回false，因为原始值不是对象。
-
-### 上下文与作用域
-
-> 变量或函数的执行上下文（简称“上下文”）决定了它们可以访问哪些数据，以及它们的行为。每个上下文都有一个关联的变量对象（variable object），而这个上下文中定义的所有变量和函数都存在于这个对象上。全局上下文是最外层的上下文。在浏览器中全局上下文是window对象，所有通过var定义的全局变量和函数都会成为window对象的属性和方法。
-
-下文中的代码在执行的时候，会创建变量对象的一个作用域链（scope chain）。这个作用域链决定了各级上下文中的代码在访问变量和函数时的顺序。代码正在执行的上下文的变量对象始终位于作用域链的最前端。如果上下文是函数，则其活动对象（activation object）用作变量对象。活动对象最初只有一个定义变量：arguments（全局上下文中没有这个变量）。作用域链中的下一个变量对象来自包含上下文，再下一个对象来自再下一个包含上下文。以此类推直至全局上下文；全局上下文的变量对象始终是作用域链的最后一个变量对象。
-
-```javascript
-var color = "blue";
-
-function changeColor() {
-  let anotherColor = "red";
-
-  function swapColors() {
-    let tempColor = anotherColor;
-    anotherColor = color;
-    color = tempColor;
-    //这里可以访问color、anotherColor和tempColor
-  }
-  //这里可以访问color和anotherColor，但访问不到tempColor
-  swapColors();
-}
-
-//这里只能访问color
-changeColor();
-```
-
-#### 作用域链增强
-
-执行上下文主要有全局上下文和函数上下文两种（eval()调用内部存在第三种上下文），但有其他方式来增强作用域链。某些语句会导致在作用域链前端临时添加一个上下文，这个上下文在代码执行后会被删除。
-
-- try/catch语句的catch块
-- with语句
