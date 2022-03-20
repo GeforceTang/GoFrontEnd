@@ -9,6 +9,10 @@
 
 前端（FE，FrontEnd）包含了HTML、CSS、JavaScript以及扩展的体系（比如框架Vue）
 
+- HTML：结构层，从语义的绝对去搭建网页结构。
+- CSS：样式层，从美观的角度去修饰页面样式。
+- JavaScript：行为层，从交互的角度去描述页面行为。
+
 ### 必备技能
 - HTML4，HTML5语法、标签、语义
 - CSS2.1，CSS3规范，与HTML结合实现各种布局、效果

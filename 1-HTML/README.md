@@ -182,7 +182,160 @@ dl内部只能存放dt和dd，dt和dd是兄弟关系。
 
 ## 表格
 
+### 基础
+
+#### 定义
+
+由3个标签组成：
+
+- table：定义一个表格的结构
+- tr（table rows）：定义表格的行
+- td（table dock）：定义表格的单元格
+
+#### 关系
+
+table -> tr -> td
+
+```html
+<!-- Table和td都有边框，通过border-collapse:collapse将边框合并-->
+<table border="1" style="border-collapse:collapse">
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+```
+#### 表头
+th（table header）：定义表格的表头
+```html
+<table>
+    <tr>
+        <th>第一行</th>
+        <th>第二行</th>
+    </tr>
+    <tr>
+        <th></th>
+        <td></td>
+    </tr>
+</table>
+```
+
+### 表格使用
+#### 单元格合并
+一部分单元格需要进行跨行跨列，可以给对应的td和th表格设置属性：
+- rowspan：上下跨行合并
+- colspan：左右跨列合并
+
+#### 表格分区
+一个完整的表格包含：表格标题、表格表头、和表格主体。table内部含有3个分区标签：
+- caption：定义表格的标题
+- thead：定义表格的表头，内部嵌套 tr -> td
+- tbody：定义表格的主体，内部嵌套 tr -> td
+
+备注：vscode的快捷键 `tr*5>td*5`
+
 ## 表单
 
+### 标签标签
+
+#### from标签
+form是容器级标签，内部存放即可输入的控件，如果输入的表单需要数据提交，所有控件需要被form表单包裹。
+
+- method：提交的http方法类型，比如post、get
+- atcion：数据提交请求的位置
+
+#### input标签
+input标签是输入框的一种，通过type属性可以扩展多中功能，比如文本、按钮、选择等
+
+##### 输入框
+通过type设置为text加载的
+- value：设置默认显示内容
+- placeholder：占位符，用于没有内容的时候的提示语
+
+```html
+文本框：<input type="text">
+```
+
+##### 密码框
+
+通过type设置为password加载的
+
+```html
+密码框：<input type="password" placeholder="请输入密码">
+```
+
+##### 单选框
+
+通过type设置为radio加载的
+
+注意name的一致性来实现单选互斥的功能。
+
+```html
+单选框：<input name="sex" type="radio" >男 <input name="sex" type="radio" >女
+```
+
+##### 复选框
+
+通过type设置为checkbox加载的
+
+还是要通过设置name属性来成组。
+
+通过给input标签添加属性`checked="checked"`属性设置为默认选中能力。
+
+```html
+多选框：<input name="game" type="checkbox" >dota <input name="game" type="checkbox" >王者荣耀
+```
+
+#### Label标签
+
+通过Label标签可以和input联动绑定，扩大input的触发范围。
+
+```html
+<!-- 第一种方式，嵌套：-->
+多选框：<label><input name="game" type="checkbox" >dota</label> <label><input name="game" type="checkbox" >王者荣耀</label>
+
+<!-- 第二种方式，for属性： -->
+多选框：<input id="dota" name="game" type="checkbox" ><label for="dota">dota</label> <label><input name="game" type="checkbox" >王者荣耀</label>
+```
+
+#### 文本域
+
+textarea标签，input只能拿输入当行文本，textarea支持多行输入，是一个双标签。
+
+- rows：定义文本域可视取区域有几行。
+- cols：定义行显示的字节数量（以英文为准）。
+- style="resize:none"：textare可以有自定义缩放能力，通过设置style resize可以关闭此功能。
+
+#### 下拉框
+
+需要2个标签来实现，select -> option
+
+- select：搭建下拉框
+- option：搭建下拉选项，selected属性来设置默认。
+
+```html
+下拉框：
+<select name="diqu">
+	<option>江苏</option>
+	<option>上海</option>
+	<option>山东</option>
+</select>
+```
 
 ## 布局
+
+div和span是常用的布局标签，俗称盒子。
+
+- div：分割跨度大，用于布局风格。
+- span：小区域，用于文字分割。
+
+```html
+ <div>
+ 	今天共收入<span style="color: red;">300</span>元
+ </div>
+```
+
