@@ -1,5 +1,7 @@
 # JavaScript基础知识
 
+> 
+
 ## 语言概要
 ### 1、JavaScript
 
