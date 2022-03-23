@@ -1,23 +1,73 @@
 <!DOCTYPE html>
+
 <head>
     <title>Document</title>
     <style>
-        .a1{
+        .a1 {
             color: red;
         }
-        #div{
+
+        #div {
             color: blue;
         }
-        *{
+
+        * {
             font-size: 12px;
+        }
+
+        .box1 ul li {
+            color: brown;
+        }
+
+        div,
+        p {
+            color: cyan;
+        }
+
+        .box1 div.box2 #box3 p{
+            color: red;
+        }
+        #box1 #box2 div.box3 p{
+            color: blue;
+        }
+        #box1 div.box2 .box3{
+            color: green;
         }
     </style>
 </head>
+
 <body>
     <div>1</div>
     <div class="a1">2</div>
     <div id="div1" class="a2">3</div>
     <p>P</p>
     <h3>h3</h3>
+    <div class="box1">
+        <ul>
+            <li>box1中的li1</li>
+            <li>box1中的li2</li>
+            <li>box1中的l13</li>
+        </ul>
+    </div>
+    <div class="box2">
+        <ul>
+            <li>box2中的li1</li>
+            <li>box2中的li2</li>
+            <li>box2中的li3</li>
+        </ul>
+    </div>
+
+    <p class="par">par</p>
+    <div class="par">par</div>
+
+    <div id="box1" class="box1">
+        <div id="box2" class="box2">
+            <div id="box3" class="box3">
+                <p>文字</p>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>
